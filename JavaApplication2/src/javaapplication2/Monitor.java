@@ -8,15 +8,16 @@ package javaapplication2;
 /**
  *
  * @author rand_
- * Singleton pattern to implement only one Monitor 
+ * This is just to simulate the screen to show the message 
  * 
  */
 public class Monitor {
     String message ; 
 
-    public Monitor(String message) {
-        this.message = message;
+    public Monitor() {
+        
     }
+
 
     public void  getMessage() {
         System.out.println(this.message);

@@ -6,6 +6,7 @@
 package javaapplication2;
 
 import java.util.ArrayList;
+import static javaapplication2.Machine.getInstance;
 
 /**
  *
@@ -18,24 +19,37 @@ public class Driver {
      * Implement an instance of the machine 
      */
     public static void main(String[] args) {
-     //// create item 
-     /// assign it to spesific queue 
-     // add the queue to the machine 
-     Item item = new Item (1,4);
-     QueueOfSameItem queueOfChoclate1 = new QueueOfSameItem(1,1);
-     queueOfChoclate1.addItem(item);
-     Machine machine = new Machine ();
-     machine.addQueueOfItems(queueOfChoclate1);
-     
-     
-     String pressed = 11+"";
-     
-     QueueOfSameItem itemSelected = machine.getSelectedQueue(pressed); ///// NULL
-     
-        System.out.println(itemSelected.getItem().idItem);    
-     
-     
-     
+    Machine machine = getInstance(); //// create instance
+    ///create number of items 
+    QueueOfSameItem  queue1 = new QueueOfSameItem(1,1); 
+    Item item = null ; 
+    
+    for (int i = 0 ; i < 10 ; i ++ ){
+    item = new Item (i,10) ; /// prices in cent 
+    queue1.addItem(item);
+    }
+    
+    machine.addQueueOfItems(queue1);
+    
+    machine.getKeypad().setDigit1(1);
+    machine.getKeypad().setDigit2(1);
+    
+   String pressed = machine.getKeypad().getPressed(); /// true 11 
+   
+   /// try to fetch tthe item 
+   
+   machine.addCoin(10);
+   
+   ///// try to purchase 
+   
+   Item itemSelected  = machine.getSelectedQueue(pressed).getItem();
+   if (itemSelected.price <= machine.getBalance()){
+   machine.balance-=itemSelected.price;
+       System.out.println(itemSelected.getPrice()); 
+       System.out.println(machine.balance);
+       System.out.println(machine.getSelectedQueue(pressed).getSize());
+   }
+   
      
     
     

@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * to allow me show that I put a function 
  */
 public class Machine {
+   private static Machine machine = null ;
    ArrayList<QueueOfSameItem> QueuesOfItems;
    Monitor monitor ; 
    Keypad keypad ; 
@@ -24,12 +25,19 @@ public class Machine {
    boolean isActiveNotesWindow=false; 
    boolean isActiveCardWindow = false ; 
 
-   Machine() {
+   private Machine() {
         QueuesOfItems = new ArrayList<QueueOfSameItem>();
-        this.monitor = monitor;
-        this.keypad = keypad;
+        monitor = new Monitor () ;
+        keypad = new Keypad();
+        
     }
 
+   public static Machine getInstance(){
+       if (machine == null){
+       return new Machine();
+       }
+       else return machine ; 
+   }
    
 
     public ArrayList<QueueOfSameItem> getQueuesOfItems() {
@@ -66,15 +74,23 @@ public class Machine {
     
    public void addBalance(double amount){
        // chaeck which window is used ? 
+       /// 1$ = 100 c and we ensert it as a coin 
        if (isActiveCoinWindow == true){
-       
+           if (amount==10 || amount ==20 || amount == 50 || amount ==100  ){
+           balance+=amount ;
+           }
+           
+           
        }
        else 
        if (isActiveCardWindow == true ){
+           balance+=amount ; //// add the amount also in cent 
+           
        }
        else 
        if ( isActiveNotesWindow == true ){
-       
+       if ( amount == 2000 || amount ==5000 ) /// 20$ or 50$ = > 2000c or 5000c 
+       balance+=amount ;
        
        }
        
@@ -99,13 +115,16 @@ o	Machine only accepts USD currency
     
     public void addCoin(double amount){
     isActiveCoinWindow = true ;
+    addBalance(amount);
     }
     public void addCard(double amount){
     /// Assume the amount will be readed directly from the card 
     isActiveCardWindow = true; 
+    addBalance(amount);
     };
     public void addNotes(double amount){
     isActiveNotesWindow=true; 
+    addBalance(amount);
     };
    
     
