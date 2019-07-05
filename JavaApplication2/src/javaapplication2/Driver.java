@@ -30,10 +30,8 @@ public class Driver {
     }
     
     machine.addQueueOfItems(queue1);
-    
     machine.getKeypad().setDigit1(1);
     machine.getKeypad().setDigit2(1);
-    
    String pressed = machine.getKeypad().getPressed(); /// true 11 
    
    /// try to fetch tthe item 
