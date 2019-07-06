@@ -15,18 +15,22 @@ import org.junit.*;
  */
 public class TestAddingItems {
     Machine machine ; 
-    
+    QueueOfSameItem queue1; 
+    Item item ; 
     @Before 
     public void init (){
     machine = getInstance();
+    queue1 = new QueueOfSameItem(1,1); // row 1 column 1 
     }
     
     @Test 
     public void addingItemsToSameQueue(){
-    Item item ; 
-    for (int i =0 ; i <10 ; i ++){}
-    item = new Item( i,5);
-    
+    for (int i =0 ; i <1000 ; i ++){
+    item = new Item(i,5);
+    queue1.addItem(item);
     }
+    Assert.assertEquals(1000,queue1.getSize()); // added 100
+    }
+    
     
 }

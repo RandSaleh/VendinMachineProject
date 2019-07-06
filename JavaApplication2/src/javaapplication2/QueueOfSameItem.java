@@ -16,7 +16,7 @@ public class QueueOfSameItem {
     int positionRow; 
     int positionColumn; 
     boolean isActive = true ; 
-    QueueOfSameItem( int positionRow, int positionColumn) {
+   public  QueueOfSameItem( int positionRow, int positionColumn) {
         items = new ArrayList<Item>();
         this.positionColumn=positionRow; 
         this.positionRow= positionRow;
