@@ -16,6 +16,12 @@ import java.util.ArrayList;
  * to allow me show that I put a function 
  */
 public class Machine {
+    public static String VALID_PURCHASE= "Your item is ready to select, and your reminder balance is ";
+    public static String NO_ENOGH_BALANCE=" No enough balance!, please insert using the slots";
+    public static String NOT_ACTIVE_QUEUE="This queue is not active at the moment";
+    public static String EMPTY_SELECTED_PATTERN="The selected row is empty ";
+    public static String NO_MATCH_PATTERN_ID ="There's no match with the selected ID, please insert new one !";
+    public static String ERROR_HAPPEN="Something went wrong, please try again ";
    private static Machine machine = null ;
    ArrayList<QueueOfSameItem> QueuesOfItems;
    Monitor monitor ; 
@@ -49,7 +55,7 @@ public class Machine {
         return keypad;
     }
     
-    public Item getFromSelectedQueue(String id ){
+    public String getFromSelectedQueue(String id ){
     Item readyToServe = null ; 
     for (QueueOfSameItem q : getQueuesOfItems()){
         if (q.getIdQueue().equals(id)){
@@ -61,31 +67,37 @@ public class Machine {
          // remove it from the queue and extract the price from the balance 
           q.remove(readyToServe);
           balance-=readyToServe.getPrice();
-          getMonitor().setMessage("Your item is ready to select, and your reminder balance is "+balance);
+          getMonitor().setMessage(VALID_PURCHASE+balance);
           getMonitor().getMessage(); //// show the message on the screen 
+          return VALID_PURCHASE;
         } //balance if statement
          else 
          {
-            getMonitor().setMessage("No enough balance");
+            getMonitor().setMessage(NO_ENOGH_BALANCE);
             getMonitor().getMessage();
+            return NO_ENOGH_BALANCE;
          }
          }//// Active if statement 
          else {
-         getMonitor().setMessage("This queue is not active at the moment");
+         getMonitor().setMessage(NOT_ACTIVE_QUEUE);
          getMonitor().getMessage();
+         return NOT_ACTIVE_QUEUE;
          } 
          } // if there's size if statement 
           else {
-          getMonitor().setMessage("The selected row is empty ");
+          getMonitor().setMessage(EMPTY_SELECTED_PATTERN);
           getMonitor().getMessage();
+          return EMPTY_SELECTED_PATTERN;
           }
         } // if there's a match id 
         else {
-            getMonitor().setMessage("There's no match with the selected ID, please insert new one !");
+            getMonitor().setMessage(NO_MATCH_PATTERN_ID);
             getMonitor().getMessage();
+            return NO_MATCH_PATTERN_ID;
         }
     }
-         return null ;
+            return ERROR_HAPPEN;
+         
     }
     
     
