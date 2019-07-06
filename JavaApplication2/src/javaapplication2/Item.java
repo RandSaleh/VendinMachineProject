@@ -20,16 +20,10 @@ public class Item {
         this.idItem = idItem;
         this.price = price;
     }
- 
     public double getPrice() {
         return price;
     }
-
     public void setPrice(double price) {
         this.price = price;
-    }
-
-   
-    
-    
+    }    
 }

@@ -20,7 +20,7 @@ public class Machine {
    ArrayList<QueueOfSameItem> QueuesOfItems;
    Monitor monitor ; 
    Keypad keypad ; 
-   double balance =0 ;  //// this will be calculated in cent 
+   double balance ;  //// this will be calculated in cent 
    boolean isActiveCoinSlot= false ; 
    boolean isActiveNotesSlot=false; 
    boolean isActiveCardSlot = false ; 
