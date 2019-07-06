@@ -31,11 +31,8 @@ public class TestPurchaseItemFromEmptyRow {
     machine.addQueueOfItems(queue1); // empty queue with pattert 11
     machine.addCoin(10); /// balance 10c 
     }
-    
     @Test 
     public void testPurchaseItemFound () {
     Assert.assertEquals(EMPTY_SELECTED_PATTERN,machine.getFromSelectedQueue("11"));
     }
-    
-    
 }

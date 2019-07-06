@@ -26,8 +26,10 @@ public class Driver {
     queue1.addItem(item);}
     machine.addQueueOfItems(queue1);
     Scanner in = new Scanner(System.in); //// Let the user choose 
-    machine.getKeypad().setDigit1(in.nextInt()); //1
-    machine.getKeypad().setDigit2(in.nextInt()); // 1 
+    int digit1 = in.nextInt();
+    int digit2 = in.nextInt();
+    machine.getKeypad().setDigit1(digit1); //1
+    machine.getKeypad().setDigit2(digit2); // 1 
     String pressed = machine.getKeypad().getPressed(); /// true 11 
    /// try to fetch tthe item 
     machine.addCoin(10);
