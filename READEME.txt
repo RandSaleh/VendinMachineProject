@@ -1,3 +1,0 @@
-The source code is deployed on my github, please follow the link.
-
-https://github.com/RandSaleh/VendingMachineProject 
