@@ -17,11 +17,9 @@ import org.junit.*;
  * @author rand_
  * Test purchase item found 
  * Test purchase item not found -- invalid id 
- * Test purchase item from empty queue with valid id 
- * Test purchase item without enough balance 
  * 
  */
-public class TestPurchaseItem {
+public class TestPurchaseItemAccordingToId{
     Machine machine ; 
     QueueOfSameItem queue1; 
     Item item ; 
@@ -42,6 +40,10 @@ public class TestPurchaseItem {
        Assert.assertEquals(VALID_PURCHASE,machine.getFromSelectedQueue("11"));
     }
     
+    @Test 
+    public void testPurchaseItemNotMatchIdPattern(){
+     Assert.assertEquals(NO_MATCH_PATTERN_ID,machine.getFromSelectedQueue("12"));
+    }
     
     
     
