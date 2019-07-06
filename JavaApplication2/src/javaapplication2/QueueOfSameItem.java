@@ -26,12 +26,12 @@ public class QueueOfSameItem {
     return items.size();
     }
     
-    public Item getItem() {
-        ///// check if it's not empty 
-        
-        Item selectedItem = items.get(items.size()-1);// store the last enserted element 
-        items.remove(items.get(items.size()-1));     //  remove it form the lest 
-        return selectedItem;                        //   serve it to the customer 
+    public Item getItem(int pos) {
+      
+        if (items.size()>0){
+       return  items.get(pos);
+        }
+        return null ;
         
     }
 
@@ -49,6 +49,11 @@ public class QueueOfSameItem {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+    
+    
+    public void remove(Item item){
+    items.remove(item);
     }
 
    
