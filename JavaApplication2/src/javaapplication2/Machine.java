@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author rand_
  * Singleton  pattern design to implement only one machine 
  *  I've put a variable to detect which window is used 
- * assume  the used slot  will be activated autimaticaly if the user pay from it 
+ * assume  the used slot  will be activated automatically if the user pay from it 
  * to allow me show that I put a function 
  */
 public class Machine {
@@ -29,29 +29,22 @@ public class Machine {
         QueuesOfItems = new ArrayList<QueueOfSameItem>();
         monitor = new Monitor () ;
         keypad = new Keypad();
-        
     }
-
    public static Machine getInstance(){
        if (machine == null){
        return new Machine();
        }
        else return machine ; 
    }
-   
-
     public ArrayList<QueueOfSameItem> getQueuesOfItems() {
         return QueuesOfItems;
     }
-
     public void addQueueOfItems(QueueOfSameItem queueOfItems) {
         QueuesOfItems.add(queueOfItems);
     }
-
     public Monitor getMonitor() {
         return monitor;
     }
-
     public Keypad getKeypad() {
         return keypad;
     }
@@ -90,13 +83,9 @@ public class Machine {
         else {
             getMonitor().setMessage("There's no match with the selected ID, please insert new one !");
             getMonitor().getMessage();
-        
         }
-        
-        
     }
          return null ;
-    
     }
     
     

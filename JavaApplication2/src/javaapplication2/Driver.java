@@ -24,24 +24,16 @@ public class Driver {
     item = new Item (i,10) ; /// prices in cent 
     queue1.addItem(item);}
     machine.addQueueOfItems(queue1);
-    //////
-        
-        
-        
+         
     Scanner in = new Scanner(System.in); //// Let the user choose 
-      
     machine.getKeypad().setDigit1(in.nextInt()); //1
     machine.getKeypad().setDigit2(in.nextInt()); // 1 
-    
-   String pressed = machine.getKeypad().getPressed(); /// true 11 
+    String pressed = machine.getKeypad().getPressed(); /// true 11 
    /// try to fetch tthe item 
-   machine.addCoin(10);
+    machine.addCoin(10);
    ///// try to purchase 
-        System.out.println("The inserted balance is "+machine.getBalance());
-        Item itemSelected  = machine.getFromSelectedQueue(pressed);
-        
-        //System.out.println("Your item is ready to select  " + "and your reminder is "+machine.getBalance());
-  
+    Item itemSelected  = machine.getFromSelectedQueue(pressed);
+          
 }
 
 

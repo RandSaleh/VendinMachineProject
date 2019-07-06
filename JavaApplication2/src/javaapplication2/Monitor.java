@@ -13,21 +13,13 @@ package javaapplication2;
  */
 public class Monitor {
     String message ; 
-
-    public Monitor() {
-        
+    public Monitor() {  
     }
-
-
     public void  getMessage() {
         System.out.println(this.message);
     }
-
     public void setMessage(String message) {
         this.message = message;
-        
     }
-    
-    
-    
+
 }

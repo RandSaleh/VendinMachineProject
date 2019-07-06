@@ -16,14 +16,11 @@ package javaapplication2;
 public class Item {
     int idItem; 
     double price ; 
-    
     public Item(int idItem, double price) {
         this.idItem = idItem;
         this.price = price;
     }
-  
-   
-
+ 
     public double getPrice() {
         return price;
     }

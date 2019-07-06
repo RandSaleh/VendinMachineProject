@@ -20,49 +20,29 @@ public class QueueOfSameItem {
         items = new ArrayList<Item>();
         this.positionColumn=positionRow; 
         this.positionRow= positionRow;
-        
     }
     public int getSize(){
     return items.size();
     }
-    
     public Item getItem(int pos) {
-      
-        if (items.size()>0){
+       if (items.size()>0){
        return  items.get(pos);
         }
-        return null ;
-        
+        return null ;    
     }
-
     public void addItem(Item item) {
         items.add(item);
     }
-    
     public String getIdQueue(){
     return positionRow+""+positionColumn;
     } 
-
     public boolean isIsActive() {
         return isActive;
     }
-
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
-    
-    
     public void remove(Item item){
     items.remove(item);
     }
-
-   
-    
-    
-   
-    
-    
-    
-    
-    
 }
