@@ -22,7 +22,7 @@ import org.junit.Test;
  * 
  */
 public class TestPurchaseItemFromEmptyRow {
-     Machine machine ; 
+    Machine machine ; 
     QueueOfSameItem queue1; 
     @Before 
     public void init(){
@@ -32,7 +32,7 @@ public class TestPurchaseItemFromEmptyRow {
     machine.addCoin(10); /// balance 10c 
     }
     
-     @Test 
+    @Test 
     public void testPurchaseItemFound () {
     Assert.assertEquals(EMPTY_SELECTED_PATTERN,machine.getFromSelectedQueue("11"));
     }
